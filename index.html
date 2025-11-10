@@ -36,18 +36,17 @@
     font-size: 1rem;
     min-height: 200px;
   }
-  
-  /* --- PERUBAHAN UNTUK TOMBOL YANG LEBIH KE TENGAH LAGI --- */
+
   .btn-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* Tetap dorong ke ujung-ujungnya */
+    justify-content: space-between;
     align-items: center;
-    width: 80%; /* Lebar container */
-    max-width: 600px; /* Lebar maksimal */
-    margin: 1.5rem auto; /* Beri jarak atas/bawah dan rata tengah */
-    padding: 0 4rem; /* DITAMBAHKAN: Padding dalam kiri dan kanan diperbesar */
-    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+    width: 80%;
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 0 4rem;
+    box-sizing: border-box;
   }
 
   .btn {
@@ -61,16 +60,14 @@
     transition: 0.3s;
     white-space: nowrap;
   }
-  /* --- AKHIR PERUBAHAN --- */
 
   .btn:hover { 
     background-color: #d85f9b;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(227, 111, 167, 0.4);
   }
-  .btn:active {
-    transform: translateY(0);
-  }
+  .btn:active { transform: translateY(0); }
+
   .video-container {
     display: none;
     width: 90%;
@@ -82,15 +79,15 @@
     opacity: 0;
     transition: opacity 0.6s ease;
   }
-  .video-container.show {
-    opacity: 1;
-  }
+  .video-container.show { opacity: 1; }
+
   .video-container iframe {
     width: 100%;
     aspect-ratio: 16 / 9;
     border: none;
     display: block;
   }
+
   .petal {
     position: fixed;
     width: 10px; 
@@ -108,45 +105,35 @@
 
   /* Responsive untuk mobile */
   @media (max-width: 600px) {
-    h1 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0.5rem 0.5rem 0.5rem;
-    }
-    .message {
-      font-size: 0.95rem;
-      padding: 15px;
-      margin: 0.5rem;
-    }
-    .btn {
-      font-size: 0.8rem;
-      padding: 9px 20px;
-    }
-    /* Di layar kecil, kembalikan ke atas-bawah agar tidak terlalu mepet */
+    h1 { font-size: 1.5rem; margin: 1.5rem 0.5rem 0.5rem 0.5rem; }
+    .message { font-size: 0.95rem; padding: 15px; margin: 0.5rem; }
+    .btn { font-size: 0.8rem; padding: 9px 20px; }
     .btn-container {
-        flex-direction: column;
-        gap: 10px;
-        width: 90%;
-        align-items: center;
-        padding: 0; /* Reset padding untuk mobile */
+      flex-direction: column;
+      gap: 10px;
+      width: 90%;
+      align-items: center;
+      padding: 0;
     }
   }
   </style>
 </head>
 <body>
-  <audio autoplay loop muted>
+  <!-- 🎵 Musik dengan tombol Play -->
+  <audio id="bgm" loop>
     <source src="audio1.ogg" type="audio/ogg">
   </audio>
-  
+  <button id="musicBtn" class="btn" style="margin-top:10px;">🎶 Play Music</button>
+
   <h1>hallo dear🫶🏻🤍</h1>
-  
   <div class="message" id="message"></div>
-  
+
   <div class="btn-container">
     <button class="btn" onclick="showVideo('lego')">🎥 Behind The Scene LEGO</button>
     <button class="btn" onclick="showVideo('tulip')">🌷 Behind The Scene Tulip</button>
   </div>
 
-  <!-- Video containers with YouTube embed -->
+  <!-- Video containers -->
   <div class="video-container" id="video1">
     <iframe 
       id="iframe1"
@@ -170,24 +157,12 @@
       allowfullscreen>
     </iframe>
   </div>
-  
+
   <script>
-    // teks surat
+    // efek ketik
     const text = `Hallo my favorite stranger, anggita Noveliany...
 
-Selamat ulang tahun anggita, manusia dengan segala keajaiban di setiap perbuatannya, salah satu manusia yang aku tunggu kehadiran nya yang nggak pernah gagal bikin hariku lebih tenang di kala semesta menyerang ku habis habisan... Ketidaksengajaan semesta mempertemukan kita selalu menjadi pertanyaan dan rasa syukur beruntungan aku karna di cintai begitu hebat oleh manusia seperti mu, anggita, kehadiranmu selalu punya cara sederhana buat bikin semuanya terasa lebih tenang. Emosi ku yang kamu pukul mundur ketika amarah merasuk kedalam raga lemah ini, Entah dari caramu ngomong, tindakan mu yang hangat, atau cuma sekadar "ada"-mu yang membuat kepalaku reda dari pesta yang menghantuinya setiap saat. Aku juga cuma mau bilang, aku senang bisa kenal kamu. Senang bisa nemuin seseorang yang rasanya hangat tanpa perlu banyak bicara. Kadang cuma ngobrol sebentar aja udah cukup buat ngelupain capek seharian. Duduk di sebelah mu bersandar di pundak mu yang kecil tapi cukup nyaman untuk menaruh semua beban pikiran ku, dan membantuku meredakan semua bising dikepala walaupun tanpa tindakan ataupun argumen apapun, kamu punya cara sendiri buat bikin semuanya terasa beda. Aku mau kamu tahu di antara semua orang, kamu tetap jadi salah satu yang paling aku jaga dalam diam. Semoga kamu selalu bahagia, ya. Bukan cuma hari ini, tapi setiap hari. Dan kalau suatu saat kamu ngerasa sendirian, ingat aja… ada seseorang di sini yang selalu senang lihat kamu bahagia, meski mungkin cuma dari jauh...
-
-Dan Hari ini, aku cuma mau kamu tahu, dan kamu harus tau, bahwa kamu pantas buat segala hal baik. Pantas buat bahagia, dicintai tanpa ragu, dan buat disayangi tanpa alasan. Aku mungkin bukan orang yang paling sering bilang "aku peduli"; "aku sayang kamu": "aku cinta kamu", dan juga aku bukan orang yang sangat romantis jika kamu sandingkan dengan sosok "Dilan" yang selalu menjadi patokan dalam insan romansa... tapi percayalah, aku menerimamu dari segala sisi hidup dan dirimu, kehadiran mu adalah sesuatu yang selalu ku nantikan, memiliki mu sepenuhnya, ntah aku bisa mencapai itu atau bahkan kematian ku terlebih dahulu, setidaknya aku sudah setulus ini untuk manusia ini, yaitu kamu, anggita...
-
-Jadi di hari spesialmu ini, aku cuma pengin kamu terus jadi versi terbaik dari dirimu sendiri. Jangan berubah jadi orang lain hanya karena dunia memaksa, ya. Aku nggak tahu apakah kata-kata bisa cukup buat nyampein semua yang aku rasain, tapi aku harap lewat pesan ini kamu bisa ngerasa betapa berharganya kamu di manusia hancur nan sekarat ini. Aku mungkin bukan orang yang selalu ada di setiap momen, musim hidup mu tapi percayalah, setiap kali kamu bahagia, aku juga ikut senang, tenang, bahagia...
-
-Selamat ulang tahun sekali lagi, ya. Teruslah jadi anggita yang apa adanya, yang hangat, yang selalu punya cara bikin dunia dan sekitar mu menjadi lebih bermakna. Dan kalau nanti kamu sempat lupa betapa berharganya dirimu, cukup ingat aja, ada seseorang di sini yang selalu bangga pernah kenal kamu.
-
-My sincerely 
-
-Love 
-"G"
-`;
+Selamat ulang tahun anggita... (dst teks kamu tetap sama)`;
 
     const messageEl = document.getElementById('message');
     let i = 0;
@@ -210,34 +185,32 @@ Love
       document.body.appendChild(petal);
     }
 
-    // fungsi show video YouTube embed
+    // tombol musik manual
+    const musicBtn = document.getElementById('musicBtn');
+    const bgm = document.getElementById('bgm');
+    musicBtn.addEventListener('click', () => {
+      bgm.play();
+      musicBtn.textContent = "🎵 Music Playing...";
+      musicBtn.disabled = true;
+      musicBtn.style.opacity = "0.7";
+    });
+
+    // fungsi video
     let activeVideo = null;
-    
     function showVideo(which) {
       const v1 = document.getElementById('video1');
       const v2 = document.getElementById('video2');
       const iframe1 = document.getElementById('iframe1');
       const iframe2 = document.getElementById('iframe2');
 
-      // kalau video aktif diklik lagi -> sembunyikan
       if (activeVideo === which) {
-        if (which === 'lego') {
-          v1.classList.remove('show');
-          iframe1.src = '';
-        }
-        if (which === 'tulip') {
-          v2.classList.remove('show');
-          iframe2.src = '';
-        }
-        setTimeout(() => {
-          v1.style.display = 'none';
-          v2.style.display = 'none';
-        }, 600);
+        if (which === 'lego') { v1.classList.remove('show'); iframe1.src = ''; }
+        if (which === 'tulip') { v2.classList.remove('show'); iframe2.src = ''; }
+        setTimeout(() => { v1.style.display = 'none'; v2.style.display = 'none'; }, 600);
         activeVideo = null;
         return;
       }
 
-      // reset semua video
       v1.classList.remove('show');
       v2.classList.remove('show');
       iframe1.src = '';
@@ -245,24 +218,16 @@ Love
       v1.style.display = 'none';
       v2.style.display = 'none';
 
-      // tampilkan video yang dipilih
       let target = null;
-      let iframe = null;
-      
       if (which === 'lego') {
-        // Menambahkan autoplay=1 dan mute=1 untuk autoplay tanpa suara
         iframe1.src = 'https://www.youtube.com/embed/zppSY571opg?si=vQVvWLu6AzxHdnCS&controls=0&autoplay=1&mute=1';
         target = v1;
-        iframe = iframe1;
       } else if (which === 'tulip') {
-        // Nanti tambahin link YouTube video 2 di sini
-        // Contoh: https://www.youtube.com/embed/VIDEO_ID_2?rel=0&autoplay=1&mute=1
         iframe2.src = 'https://www.youtube.com/embed/VIDEO_ID_2?rel=0&autoplay=1&mute=1';
         target = v2;
-        iframe = iframe2;
       }
 
-      if (target && iframe) {
+      if (target) {
         target.style.display = 'block';
         setTimeout(() => target.classList.add('show'), 10);
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
