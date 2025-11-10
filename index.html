@@ -36,14 +36,20 @@
     font-size: 1rem;
     min-height: 200px;
   }
+  
+  /* --- PERUBAHAN UNTUK TOMBOL YANG LEBIH KE TENGAH --- */
   .btn-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between; /* Tetap dorong ke ujung-ujungnya */
     align-items: center;
-    gap: 10px;
-    margin: 0.5rem auto;
-    padding: 0 1rem;
+    width: 80%; /* Lebar container */
+    max-width: 600px; /* Lebar maksimal */
+    margin: 1.5rem auto; /* Beri jarak atas/bawah dan rata tengah */
+    padding: 0 3rem; /* TAMBAHKAN INI: Beri jarak di dalam kiri dan kanan */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
   }
+
   .btn {
     background-color: #e36fa7;
     border: none;
@@ -54,9 +60,9 @@
     cursor: pointer;
     transition: 0.3s;
     white-space: nowrap;
-    width: auto;
-    max-width: 90%;
   }
+  /* --- AKHIR PERUBAHAN --- */
+
   .btn:hover { 
     background-color: #d85f9b;
     transform: translateY(-2px);
@@ -114,7 +120,14 @@
     .btn {
       font-size: 0.8rem;
       padding: 9px 20px;
-      max-width: 85%;
+    }
+    /* Di layar kecil, kembalikan ke atas-bawah agar tidak terlalu mepet */
+    .btn-container {
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+        align-items: center;
+        padding: 0; /* Reset padding untuk mobile */
     }
   }
   </style>
