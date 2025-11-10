@@ -135,27 +135,10 @@
 
   <!-- Video containers -->
   <div class="video-container" id="video1">
-    <iframe 
-      id="iframe1"
-      src="" 
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
+    <iframe id="iframe1" src="" allowfullscreen></iframe>
   </div>
-
   <div class="video-container" id="video2">
-    <iframe 
-      id="iframe2"
-      src="" 
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
+    <iframe id="iframe2" src="" allowfullscreen></iframe>
   </div>
 
   <script>
@@ -163,7 +146,6 @@
     const text = `Hallo my favorite stranger, anggita Noveliany...
 
 Selamat ulang tahun anggita... (dst teks kamu tetap sama)`;
-
     const messageEl = document.getElementById('message');
     let i = 0;
     function typeWriter() {
@@ -185,14 +167,28 @@ Selamat ulang tahun anggita... (dst teks kamu tetap sama)`;
       document.body.appendChild(petal);
     }
 
-    // tombol musik manual
+    // tombol musik manual + auto play saat scroll
     const musicBtn = document.getElementById('musicBtn');
     const bgm = document.getElementById('bgm');
-    musicBtn.addEventListener('click', () => {
-      bgm.play();
-      musicBtn.textContent = "🎵 Music Playing...";
-      musicBtn.disabled = true;
-      musicBtn.style.opacity = "0.7";
+    let musicPlayed = false;
+
+    function playMusic() {
+      if (!musicPlayed) {
+        bgm.play();
+        musicBtn.textContent = "🎵 Music Playing...";
+        musicBtn.disabled = true;
+        musicBtn.style.opacity = "0.7";
+        musicPlayed = true;
+      }
+    }
+
+    musicBtn.addEventListener('click', playMusic);
+
+    // auto play saat user mulai scroll
+    window.addEventListener('scroll', () => {
+      if (!musicPlayed) {
+        playMusic();
+      }
     });
 
     // fungsi video
@@ -220,10 +216,10 @@ Selamat ulang tahun anggita... (dst teks kamu tetap sama)`;
 
       let target = null;
       if (which === 'lego') {
-        iframe1.src = 'https://www.youtube.com/embed/zppSY571opg?si=vQVvWLu6AzxHdnCS&controls=0&autoplay=1&mute=1';
+        iframe1.src = 'https://www.youtube.com/embed/zppSY571opg?autoplay=1&mute=1&controls=0';
         target = v1;
       } else if (which === 'tulip') {
-        iframe2.src = 'https://www.youtube.com/embed/VIDEO_ID_2?rel=0&autoplay=1&mute=1';
+        iframe2.src = 'https://www.youtube.com/embed/VIDEO_ID_2?autoplay=1&mute=1&controls=0';
         target = v2;
       }
 
