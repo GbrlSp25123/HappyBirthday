@@ -133,8 +133,7 @@
   </style>
 </head>
 <body>
-  <!-- VERSI DEBUGGING AUDIO -->
-  <audio id="background-music" loop controls>
+  <audio autoplay loop muted>
     <source src="audio1.ogg" type="audio/ogg">
   </audio>
   
@@ -210,19 +209,6 @@ Love
       petal.style.animationDelay = Math.random() * 5 + 's';
       document.body.appendChild(petal);
     }
-
-    // --- SCRIPT DEBUGGING AUDIO ---
-    // Coba paksa play setelah halaman interaksi pertama
-    document.addEventListener('click', function() {
-      const audio = document.getElementById('background-music');
-      if (audio.paused) {
-        audio.play().then(() => {
-          console.log("Audio berhasil diputar setelah klik.");
-        }).catch(error => {
-          console.error("Gagal memutar audio:", error);
-        });
-      }
-    }, { once: true }); // Hanya berjalan sekali
 
     // fungsi show video YouTube embed
     let activeVideo = null;
